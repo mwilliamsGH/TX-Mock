@@ -1,0 +1,93 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+media_folder: "client/public/assets/images" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/assets/images" # The src attribute for uploaded media will begin with /images/uploads
+
+collections:
+  - name: "news" # Used in routes, e.g., /admin/collections/news
+    label: "News" # Used in the UI
+    folder: "client/src/data/news" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "date"}
+      - {label: "Excerpt", name: "excerpt", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Slug", name: "slug", widget: "string", hint: "URL-friendly version of the title"}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+
+  - name: "building" # Used in routes, e.g., /admin/collections/building
+    label: "Building Info" # Used in the UI
+    files:
+      - label: "Building Data"
+        name: "building"
+        file: "client/src/data/building.json"
+        fields:
+          - {label: "Building Name", name: "name", widget: "string"}
+          - {label: "Address", name: "address", widget: "string"}
+          - {label: "Year Built", name: "yearBuilt", widget: "number"}
+          - {label: "Total Square Feet", name: "totalSquareFeet", widget: "number"}
+          - {label: "Floors", name: "floors", widget: "number"}
+          - {label: "Parking Ratio", name: "parkingRatio", widget: "string"}
+          - {label: "Owner", name: "owner", widget: "string"}
+          - {label: "Property Manager", name: "propertyManager", widget: "string"}
+          - {label: "Overview", name: "overview", widget: "text"}
+          - label: "Brand"
+            name: "brand"
+            widget: "object"
+            fields:
+              - {label: "Primary Color", name: "primaryColor", widget: "string"}
+              - {label: "Accent Color", name: "accentColor", widget: "string"}
+              - {label: "Neutral Color", name: "neutralColor", widget: "string"}
+              - {label: "Font Family", name: "fontFamily", widget: "string"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "string"}
+              - label: "Primary CTA"
+                name: "ctaPrimary"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "Href", name: "href", widget: "string"}
+          - label: "Quick Facts"
+            name: "quickFacts"
+            widget: "list"
+            fields:
+              - {label: "Label", name: "label", widget: "string"}
+              - {label: "Value", name: "value", widget: "string"}
+          - label: "Amenities"
+            name: "amenities"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Hours", name: "hours", widget: "string"}
+          - label: "Resources"
+            name: "resources"
+            widget: "list"
+            fields:
+              - {label: "Label", name: "label", widget: "string"}
+              - {label: "Href", name: "href", widget: "string"}
+          - label: "Emergency"
+            name: "emergency"
+            widget: "object"
+            fields:
+              - label: "Contacts"
+                name: "contacts"
+                widget: "object"
+                fields:
+                  - {label: "Security Desk", name: "securityDesk", widget: "string"}
+                  - {label: "Property Manager", name: "propertyManager", widget: "string"}
+                  - {label: "Fire/Police", name: "firePolice", widget: "string"}
+              - label: "Emergency Steps"
+                name: "steps"
+                widget: "list"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Content", name: "content", widget: "text"}

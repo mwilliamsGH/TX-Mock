@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import NewsCard from "@/components/NewsCard";
-import newsData from "@/data/news.json";
+import { getNewsData } from "@/lib/news";
 
 export default function News() {
   return (

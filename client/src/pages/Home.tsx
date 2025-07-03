@@ -4,9 +4,11 @@ import QuickFacts from "@/components/QuickFacts";
 import AmenityCard from "@/components/AmenityCard";
 import NewsCard from "@/components/NewsCard";
 import buildingData from "@/data/building.json";
-import newsData from "@/data/news.json";
+import { getNewsData } from "@/lib/news";
 
 export default function Home() {
+  const newsData = getNewsData();
+  
   return (
     <Layout>
       <HeroBanner
