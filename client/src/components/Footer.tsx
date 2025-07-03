@@ -36,6 +36,9 @@ export default function Footer() {
         </div>
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
           <p>&copy; 2025 {buildingData.name}. Managed by {buildingData.propertyManager}.</p>
+          <p className="text-xs mt-2">
+            <a href="/admin" className="text-gray-500 hover:text-gray-300 transition-colors">Property Manager Login</a>
+          </p>
         </div>
       </div>
     </footer>

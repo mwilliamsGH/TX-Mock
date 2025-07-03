@@ -71,6 +71,17 @@ export const BuildingSchema = z.object({
   quickFacts: z.array(QuickFactSchema),
 });
 
+export const AnnouncementSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  content: z.string(),
+  type: z.enum(["maintenance", "event", "general", "alert"]),
+  priority: z.enum(["low", "medium", "high"]),
+  publishDate: z.string(),
+  expiryDate: z.string().optional(),
+  isActive: z.boolean(),
+});
+
 export const ContactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
@@ -84,6 +95,7 @@ export type EmergencyContacts = z.infer<typeof EmergencyContactsSchema>;
 export type EmergencyStep = z.infer<typeof EmergencyStepSchema>;
 export type Emergency = z.infer<typeof EmergencySchema>;
 export type NewsPost = z.infer<typeof NewsPostSchema>;
+export type Announcement = z.infer<typeof AnnouncementSchema>;
 export type Brand = z.infer<typeof BrandSchema>;
 export type Hero = z.infer<typeof HeroSchema>;
 export type Building = z.infer<typeof BuildingSchema>;

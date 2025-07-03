@@ -1,0 +1,10 @@
+{
+  "id": "2025-07-building-wifi-upgrade",
+  "title": "Wi-Fi Infrastructure Upgrade",
+  "content": "We're upgrading our building's Wi-Fi network to provide faster and more reliable internet connectivity. The upgrade will happen overnight from July 15-17. Brief interruptions may occur between 11 PM and 6 AM.",
+  "type": "maintenance",
+  "priority": "medium",
+  "publishDate": "2025-07-03",
+  "expiryDate": "2025-07-20",
+  "isActive": true
+}

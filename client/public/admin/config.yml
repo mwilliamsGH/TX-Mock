@@ -1,0 +1,114 @@
+backend:
+  name: git-gateway
+  branch: main
+
+publish_mode: editorial_workflow
+
+media_folder: "client/public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "announcements"
+    label: "Building Announcements"
+    folder: "client/src/data/announcements"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    format: "json"
+    extension: "json"
+    fields:
+      - { label: "ID", name: "id", widget: "string", hint: "Unique identifier for the announcement" }
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Content", name: "content", widget: "text", required: true }
+      - label: "Type"
+        name: "type"
+        widget: "select"
+        options:
+          - { label: "Maintenance", value: "maintenance" }
+          - { label: "Event", value: "event" }
+          - { label: "General", value: "general" }
+          - { label: "Alert", value: "alert" }
+        default: "general"
+      - label: "Priority"
+        name: "priority"
+        widget: "select"
+        options:
+          - { label: "Low", value: "low" }
+          - { label: "Medium", value: "medium" }
+          - { label: "High", value: "high" }
+        default: "medium"
+      - { label: "Publish Date", name: "publishDate", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Expiry Date", name: "expiryDate", widget: "datetime", format: "YYYY-MM-DD", required: false }
+      - { label: "Active", name: "isActive", widget: "boolean", default: true }
+  
+  - name: "site_settings"
+    label: "Site Settings"
+    files:
+      - label: "Building Information"
+        name: "building"
+        file: "client/src/data/building.json"
+        fields:
+          - { label: "Building Name", name: "name", widget: "string" }
+          - { label: "Address", name: "address", widget: "string" }
+          - { label: "Year Built", name: "yearBuilt", widget: "number" }
+          - { label: "Total Square Feet", name: "totalSquareFeet", widget: "number" }
+          - { label: "Floors", name: "floors", widget: "number" }
+          - { label: "Parking Ratio", name: "parkingRatio", widget: "string" }
+          - { label: "Owner", name: "owner", widget: "string" }
+          - { label: "Property Manager", name: "propertyManager", widget: "string" }
+          - { label: "Overview", name: "overview", widget: "text" }
+          - label: "Brand"
+            name: "brand"
+            widget: "object"
+            fields:
+              - { label: "Primary Color", name: "primaryColor", widget: "string" }
+              - { label: "Accent Color", name: "accentColor", widget: "string" }
+              - { label: "Neutral Color", name: "neutralColor", widget: "string" }
+              - { label: "Font Family", name: "fontFamily", widget: "string" }
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "string" }
+              - label: "Primary CTA"
+                name: "ctaPrimary"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Link", name: "href", widget: "string" }
+          - label: "Quick Facts"
+            name: "quickFacts"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Value", name: "value", widget: "string" }
+          - label: "Amenities"
+            name: "amenities"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Hours", name: "hours", widget: "string" }
+          - label: "Resources"
+            name: "resources"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Link", name: "href", widget: "string" }
+          - label: "Emergency Information"
+            name: "emergency"
+            widget: "object"
+            fields:
+              - label: "Contacts"
+                name: "contacts"
+                widget: "object"
+                fields:
+                  - { label: "Security Desk", name: "securityDesk", widget: "string" }
+                  - { label: "Property Manager", name: "propertyManager", widget: "string" }
+                  - { label: "Fire/Police", name: "firePolice", widget: "string" }
+              - label: "Emergency Steps"
+                name: "steps"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Content", name: "content", widget: "text" }

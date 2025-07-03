@@ -1,0 +1,10 @@
+{
+  "id": "2025-07-security-update",
+  "title": "New Security Access Cards",
+  "content": "All tenants will receive new security access cards starting July 10th. Please pick up your new cards from the security desk during business hours. Old cards will be deactivated on July 31st.",
+  "type": "general",
+  "priority": "high",
+  "publishDate": "2025-07-02",
+  "expiryDate": "2025-08-01",
+  "isActive": true
+}

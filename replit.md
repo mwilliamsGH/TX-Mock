@@ -108,16 +108,18 @@ This is a modern tenant hub website for Riverview Commons, a Class-A office buil
 - **CDN Delivery**: Static assets served from global CDN
 - **Environment Variables**: Build-time environment configuration
 
-### Future CMS Integration
-- **Content Management**: Designed for future Decap CMS integration
-- **Build Triggers**: Planned webhook-based rebuilds on content changes
-- **Git-based Workflow**: Content updates through Git commits
+### CMS Integration
+- **Content Management**: Decap CMS integrated for building announcements
+- **Admin Interface**: Available at `/admin` for property managers
+- **Announcement System**: Dynamic announcements displayed on home page
+- **Git-based Workflow**: Content updates through CMS commits to repository
 
 ## Changelog
 
 ```
 Changelog:
 - July 03, 2025. Initial setup
+- July 03, 2025. Added Decap CMS functionality for building announcements management
 ```
 
 ## User Preferences
